@@ -31,6 +31,7 @@
       padding: 1.5rem;
       width: 250px;
       max-width: 90vw;
+      margin: 0 auto; /* 👈 เพิ่มบรรทัดนี้ */
     }
 
     header {
@@ -86,6 +87,13 @@
     .today {
       background: var(--today);
       font-weight: bold;
+      border-radius: 50%;      /* ทำให้เป็นวงกลม */
+      width: 2em;              /* กำหนดขนาดให้กลม */
+      height: 2em;
+      display: flex;           /* จัดให้อยู่กลาง */
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;          /* จัดให้อยู่ตรงกลางในช่อง */
     }
   </style>
 </head>
