@@ -27,9 +27,9 @@
       background: rgba(255, 250, 243, 0.7); /* โปร่งใสเล็กน้อย */
       backdrop-filter: blur(4px); /* เบลอนิดๆ สวย */
       border-radius: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
       padding: 1.5rem;
-      width: 350px;
+      width: 250px;
       max-width: 90vw;
     }
 
@@ -75,6 +75,7 @@
       padding: 0.6rem;
       border-radius: 10px;
       transition: 0.2s;
+      font-size: 0.9rem; /* ลดขนาดตัวเลขวันที่ */
     }
 
     td:hover {
@@ -115,14 +116,14 @@
         const today = new Date();
 
         const monthNames = [
-          "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
-          "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
+          "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+          "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
         ];
 
         monthYear.textContent = `${monthNames[month]} ${year}`;
 
         let html = "<tr>";
-        const daysOfWeek = ["อา", "จ", "อ", "พ", "พฤ", "ศ", "ส"];
+        const daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];
         for (let d of daysOfWeek) html += `<th>${d}</th>`;
         html += "</tr><tr>";
 
