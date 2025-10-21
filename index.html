@@ -3,19 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ปฏิทินเอิร์ธโทน</title>
+  <title>ปฏิทินเอิร์ธโทน (พื้นหลังโปร่งใส)</title>
   <style>
     :root {
-      --bg: #f6f3ee;
-      --card: #fffaf3;
       --text: #4b3f2f;
       --accent: #bfa27a;
       --today: #d9c6a5;
+      --hover: #f0e8d8;
     }
 
     body {
       font-family: 'Prompt', sans-serif;
-      background: var(--bg);
+      background: transparent; /* โปร่งใส */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -25,9 +24,10 @@
     }
 
     .calendar {
-      background: var(--card);
+      background: rgba(255, 250, 243, 0.7); /* โปร่งใสเล็กน้อย */
+      backdrop-filter: blur(4px); /* เบลอนิดๆ สวย */
       border-radius: 20px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       padding: 1.5rem;
       width: 350px;
       max-width: 90vw;
@@ -78,7 +78,7 @@
     }
 
     td:hover {
-      background: #f0e8d8;
+      background: var(--hover);
       cursor: pointer;
     }
 
