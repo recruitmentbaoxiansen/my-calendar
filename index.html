@@ -1,110 +1,155 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ปฏิทินเอิร์ธโทน (พื้นหลังโปร่งใส)</title>
   <style>
-    :root {
-      --text: #4b3f2f;
-      --accent: #bfa27a;
-      --today: #d9c6a5;
-      --hover: #f0e8d8;
+    :root{
+      --text:#4b3f2f;
+      --accent:#bfa27a;
+      --today:#d9c6a5;
+      --hover:#f0e8d8;
     }
 
-    body {
+    /* ให้ container ครอบกลางเสมอ (ช่วยเวลา embed ใน Notion ที่อาจมี padding) */
+    body{
       font-family: 'Prompt', sans-serif;
-      background: transparent; /* โปร่งใส */
+      background: transparent;
+      margin: 0;
+      color: var(--text);
       display: flex;
+      justify-content: center; /* กึ่งกลางหน้าจอ */
+      align-items: flex-start; /* ไม่จำเป็นต้องกึ่งกลางแนวตั้งเสมอ */
+      padding: 24px 0; /* ปรับให้มีช่องบน/ล่าง เวลา embed ดูสวยขึ้น */
+    }
+
+    /* กล่องปฏิทิน */
+    .calendar{
+      background: rgba(255,250,243,0.85);
+      backdrop-filter: blur(4px);
+      border-radius: 18px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      padding: 18px;
+      width: 270px;        /* ปรับขนาดกล่อง */
+      max-width: 92vw;
+      margin: 0 auto;      /* ช่วยกึ่งกลางใน iframe/embed */
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:12px;
+    }
+    header h2{
+      margin:0;
+      font-size:1.1rem;
+      text-align:center;
+      width:100%;
+      font-weight:700;
+    }
+    button{
+      background:none;
+      border:none;
+      color:var(--accent);
+      font-size:1.1rem;
+      cursor:pointer;
+      transition:0.18s;
+    }
+    button:hover{ transform:scale(1.15); color:var(--text); }
+
+    /* ตาราง: ทำให้เป็นบล็อกกึ่งกลางเสมอ */
+    table{
+      width:100%;
+      border-collapse:collapse;
+      text-align:center;
+      display:block;        /* สำคัญ: ให้ table เป็น block เพื่อ margin auto ทำงาน */
+      margin: 0 auto;       /* กึ่งกลางจริงๆ */
+      box-sizing: border-box;
+    }
+
+    thead, tbody { display: block; width: 100%; } /* ให้ควบคุมแถวได้ง่าย */
+    tr { display: flex; justify-content: space-between; }
+
+    th{
+      flex: 1 1 0;
+      color:#7a6a52;
+      font-weight:600;
+      padding-bottom:8px;
+      font-size:0.85rem;
+    }
+
+    td{
+      flex: 1 1 0;                  /* 7 ช่อง เท่า ๆ กัน */
+      height: 38px;                 /* กำหนดความสูงคงที่เพื่อความสวย */
+      box-sizing: border-box;
+      padding: 6px 4px;
+      font-size:0.9rem;
+      border-radius: 10px;
+      transition:0.12s;
+      display: flex;                /* ทำให้เนื้อหาเซลจัดกึ่งกลางได้ง่าย */
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
-      color: var(--text);
+      min-width: 0;
     }
 
-    .calendar {
-      background: rgba(255, 250, 243, 0.7); /* โปร่งใสเล็กน้อย */
-      backdrop-filter: blur(4px); /* เบลอนิดๆ สวย */
-      border-radius: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-      padding: 1.5rem;
-      width: 250px;
-      max-width: 90vw;
-      margin: 0 auto; /* 👈 เพิ่มบรรทัดนี้ */
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-
-    header h2 {
-      font-size: 1.3rem;
-      margin: 0;
-    }
-
-    button {
-      background: none;
-      border: none;
-      color: var(--accent);
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    button:hover {
-      color: var(--text);
-      transform: scale(1.2);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: center;
-    }
-
-    th {
-      color: #7a6a52;
-      font-weight: 600;
-      padding-bottom: 0.5rem;
-    }
-
-    td {
-      padding: 0.6rem;
-      border-radius: 10px;
-      transition: 0.2s;
-      font-size: 0.9rem; /* ลดขนาดตัวเลขวันที่ */
-    }
-
-    td:hover {
+    td:hover{
       background: var(--hover);
       cursor: pointer;
     }
 
-    .today {
+    /* วันที่เป็นวงกลม */
+    .today{
       background: var(--today);
-      font-weight: bold;
-      border-radius: 50%;      /* ทำให้เป็นวงกลม */
-      width: 2em;              /* กำหนดขนาดให้กลม */
-      height: 2em;
-      display: flex;           /* จัดให้อยู่กลาง */
+      font-weight: 700;
+      border-radius: 50%;
+      width: 34px;       /* ขนาดวงกลม — ปรับตามต้องการ */
+      height: 34px;
+      display: inline-flex;
       justify-content: center;
       align-items: center;
-      margin: 0 auto;          /* จัดให้อยู่ตรงกลางในช่อง */
+      margin: 0;         /* ไม่มี margin เพื่ออยู่ตรงกลางใน td */
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    /* เซลล์ที่ว่าง ให้มีความสูงคงที่ แต่ไม่มีตัวเลข */
+    .empty {
+      background: transparent;
+    }
+
+    /* ปรับตัวหนังสือเดือน/ปี ให้กึ่งกลางปุ่ม */
+    .month-wrap{
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    /* ปุ่มซ้ายขวา อยู่ขอบ */
+    .nav-left { order: 0; }
+    .nav-right { order: 2; }
+    .month-title { order:1; flex:1; text-align:center; pointer-events: none; }
+
+    /* responsive เล็ก ๆ */
+    @media (max-width: 320px){
+      .calendar{ width: 92vw; padding:12px; }
+      td{ height: 34px; }
+      .today{ width:30px; height:30px; }
     }
   </style>
 </head>
 <body>
   <div class="calendar">
     <header>
-      <button id="prev">&#9664;</button>
-      <h2 id="monthYear"></h2>
-      <button id="next">&#9654;</button>
+      <div class="month-wrap">
+        <button id="prev" class="nav-left">&#9664;</button>
+        <h2 id="monthYear" class="month-title">Oct 2025</h2>
+        <button id="next" class="nav-right">&#9654;</button>
+      </div>
     </header>
-    <table id="calendarTable"></table>
+
+    <table id="calendarTable" aria-label="ปฏิทิน"></table>
   </div>
 
   <script>
@@ -116,7 +161,7 @@
 
       let currentDate = new Date();
 
-      function renderCalendar(date) {
+      function renderCalendar(date){
         const year = date.getFullYear();
         const month = date.getMonth();
         const firstDay = new Date(year, month, 1);
@@ -124,29 +169,52 @@
         const today = new Date();
 
         const monthNames = [
-          "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-          "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+          "Jan","Feb","Mar","Apr","May","Jun",
+          "Jul","Aug","Sep","Oct","Nov","Dec"
         ];
 
         monthYear.textContent = `${monthNames[month]} ${year}`;
 
-        let html = "<tr>";
-        const daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];
+        const daysOfWeek = ["S","M","T","W","T","F","S"];
+
+        // สร้าง header แถววัน
+        let html = "<thead><tr>";
         for (let d of daysOfWeek) html += `<th>${d}</th>`;
-        html += "</tr><tr>";
+        html += "</tr></thead><tbody>";
 
-        for (let i = 0; i < firstDay.getDay(); i++) html += "<td></td>";
+        // สร้างวัน (ใช้ flex rows)
+        // เริ่มจากช่องว่างก่อนวันแรก
+        let cells = [];
+        for (let i = 0; i < firstDay.getDay(); i++) cells.push("");
+        for (let d = 1; d <= lastDay.getDate(); d++) cells.push(d);
 
-        for (let d = 1; d <= lastDay.getDate(); d++) {
-          const isToday =
-            d === today.getDate() &&
-            month === today.getMonth() &&
-            year === today.getFullYear();
-          html += `<td class="${isToday ? "today" : ""}">${d}</td>`;
-          if ((firstDay.getDay() + d) % 7 === 0) html += "</tr><tr>";
+        // pad ให้เป็นจำนวนเต็มของ 7 (เพื่อให้แถวสุดท้ายสมบูรณ์)
+        while (cells.length % 7 !== 0) cells.push("");
+
+        // สร้างแต่ละแถว (7 ช่อง)
+        for (let r = 0; r < cells.length; r += 7) {
+          html += "<tr>";
+          for (let c = 0; c < 7; c++) {
+            const val = cells[r + c];
+            if (val === "") {
+              html += `<td class="empty"></td>`;
+            } else {
+              const isToday = (
+                val === today.getDate() &&
+                month === today.getMonth() &&
+                year === today.getFullYear()
+              );
+              if (isToday) {
+                html += `<td><span class="today">${val}</span></td>`;
+              } else {
+                html += `<td>${val}</td>`;
+              }
+            }
+          }
+          html += "</tr>";
         }
 
-        html += "</tr>";
+        html += "</tbody>";
         calendarTable.innerHTML = html;
       }
 
@@ -154,7 +222,6 @@
         currentDate.setMonth(currentDate.getMonth() - 1);
         renderCalendar(currentDate);
       };
-
       nextBtn.onclick = () => {
         currentDate.setMonth(currentDate.getMonth() + 1);
         renderCalendar(currentDate);
