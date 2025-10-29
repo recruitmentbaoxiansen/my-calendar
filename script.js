@@ -41,21 +41,21 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCalendar();
 
   prevNextIcon.forEach(icon => {
-  icon.addEventListener("click", () => {
-    if(icon.id === "prev") {
-      currMonth--;
-      if(currMonth < 0){
-        currMonth = 11;
-        currYear--;
+    icon.addEventListener("click", () => {
+      if(icon.id === "prev") {
+        currMonth--;
+        if(currMonth < 0){
+          currMonth = 11;
+          currYear--;
+        }
+      } else {
+        currMonth++;
+        if(currMonth > 11){
+          currMonth = 0;
+          currYear++;
+        }
       }
-    } else {
-      currMonth++;
-      if(currMonth > 11){
-        currMonth = 0;
-        currYear++;
-      }
-    }
-    renderCalendar();
+      renderCalendar();
+    });
   });
 });
-
