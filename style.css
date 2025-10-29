@@ -28,13 +28,13 @@ body {
 
 /* Header */
 header {
-  position: relative;        /* เพื่อ GIF ใช้ absolute */
+  position: relative;
   width: 100%;
   display: flex;
-  justify-content: center;   /* month-nav อยู่กลาง */
+  justify-content: center;
   align-items: center;
   padding: 10px 0;
-  min-height: 50px;          /* ป้องกันกล่องหาย */
+  min-height: 50px;
   box-sizing: border-box;
 }
 
@@ -44,7 +44,7 @@ header .header-gif {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  height: 36px; /* ปรับขนาด GIF */
+  height: 36px;
 }
 
 /* เดือน + ปุ่ม */
@@ -101,4 +101,56 @@ header .header-gif {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(6, 1fr);
-  gap
+  gap: 0;
+  height: 260px;
+  align-items: start;
+}
+
+.calendar .days li {
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 40px;
+  position: relative;
+  color: #333;
+}
+
+.days li.inactive {
+  color: #aaa;
+}
+
+.days li.active {
+  color: #fff;
+}
+
+.days li::before {
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  height: 36px;
+  width: 36px;
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.days li.active::before {
+  background: #916a05;
+}
+
+.days li:not(.active):hover::before {
+  background: #f2f2f2;
+}
+
+@media (max-width: 400px) {
+  .wrapper {
+    width: 100%;
+  }
+  .month-nav .current-date {
+    font-size: 1.1rem;
+  }
+  .calendar .days {
+    height: 240px;
+  }
+}
