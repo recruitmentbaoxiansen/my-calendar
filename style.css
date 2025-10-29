@@ -16,7 +16,6 @@ body {
   margin: 0;
 }
 
-/* กล่องปฏิทิน */
 .wrapper {
   width: 350px;
   background: transparent;
@@ -29,5 +28,77 @@ body {
 
 /* Header */
 header {
-  position: relative; /* เพื่อให้ GIF ใช้ absolute */
-  width
+  position: relative;        /* เพื่อ GIF ใช้ absolute */
+  width: 100%;
+  display: flex;
+  justify-content: center;   /* month-nav อยู่กลาง */
+  align-items: center;
+  padding: 10px 0;
+  min-height: 50px;          /* ป้องกันกล่องหาย */
+  box-sizing: border-box;
+}
+
+/* GIF อยู่ซ้ายสุด */
+header .header-gif {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 36px; /* ปรับขนาด GIF */
+}
+
+/* เดือน + ปุ่ม */
+.month-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.month-nav span {
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #777;
+  text-align: center;
+  line-height: 32px;
+  font-size: 1.5rem;
+  user-select: none;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.month-nav span:hover {
+  background: #f2f2f2;
+}
+
+.month-nav .current-date {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+}
+
+/* Calendar Section */
+.calendar {
+  padding: 5px 0 0 0;
+}
+
+/* Layout ของวัน */
+.calendar ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
+}
+
+.calendar .weeks li {
+  width: calc(100% / 7);
+  font-weight: 500;
+  color: #555;
+}
+
+.calendar .days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap
