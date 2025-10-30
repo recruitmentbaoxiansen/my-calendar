@@ -10,14 +10,16 @@
 <body>
   <div class="wrapper">
     <header>
-      <!-- GIF อยู่ริมซ้ายสุด -->
-      <img src="assets/header.gif" alt="Header GIF" class="header-gif">
+      <!-- ปุ่มเลื่อนซ้าย -->
+      <img src="assets/header-left.gif" alt="Prev Month" class="nav-gif" id="prevGif">
 
+      <!-- ส่วนชื่อเดือน -->
       <div class="month-nav">
-        <span id="prev">&lt;</span>
         <p class="current-date"></p>
-        <span id="next">&gt;</span>
       </div>
+
+      <!-- ปุ่มเลื่อนขวา -->
+      <img src="assets/header-right.gif" alt="Next Month" class="nav-gif" id="nextGif">
     </header>
 
     <div class="calendar">
@@ -30,8 +32,6 @@
         <li>Fri</li>
         <li>Sat</li>
       </ul>
-
-      <!-- เพิ่มอันนี้ -->
       <ul class="days"></ul>
     </div>
   </div>
