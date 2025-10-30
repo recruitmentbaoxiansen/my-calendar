@@ -38,7 +38,7 @@ header {
 
 /* ปุ่ม GIF ซ้าย-ขวา */
 header .nav-gif {
-  height: 36px;
+  height: 46px;
   width: auto;
   cursor: pointer;
   transition: transform 0.2s ease;
