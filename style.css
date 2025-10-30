@@ -28,54 +28,37 @@ body {
 
 /* Header */
 header {
-  position: relative;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 10px 0;
-  min-height: 50px;
   box-sizing: border-box;
+  position: relative;
 }
 
-/* GIF อยู่ซ้ายสุด */
-header .header-gif {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+/* ปุ่ม GIF ซ้าย-ขวา */
+header .nav-gif {
   height: 36px;
-}
-
-/* เดือน + ปุ่ม */
-.month-nav {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.month-nav span {
-  height: 32px;
-  width: 32px;
+  width: auto;
   cursor: pointer;
-  color: #777;
-  text-align: center;
-  line-height: 32px;
-  font-size: 1.5rem;
-  user-select: none;
-  border-radius: 50%;
-  transition: background 0.2s;
+  transition: transform 0.2s ease;
 }
 
-.month-nav span:hover {
-  background: #f2f2f2;
+header .nav-gif:hover {
+  transform: scale(1.1);
+}
+
+/* เดือนตรงกลาง */
+.month-nav {
+  flex: 1;
+  text-align: center;
 }
 
 .month-nav .current-date {
   font-size: 1.3rem;
   font-weight: 500;
   color: #333;
-  text-align: center;
 }
 
 /* Calendar Section */
@@ -83,7 +66,6 @@ header .header-gif {
   padding: 5px 0 0 0;
 }
 
-/* Layout ของวัน */
 .calendar ul {
   display: flex;
   flex-wrap: wrap;
