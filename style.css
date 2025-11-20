@@ -9,20 +9,19 @@
 
 body {
   display: flex;
-  justify-content: flex-start; /* ✅ ชิดซ้าย */
-  align-items: flex-start;     /* ✅ ชิดด้านบน */
+  justify-content: flex-start;
+  align-items: flex-start;
   background: transparent;
   padding: 0;
   margin: 0;
 }
 
-/* ✅ กล่องปฏิทิน */
 .wrapper {
   width: 350px;
   background: transparent;
   border-radius: 0;
-  box-shadow: none; /* ✅ ไม่มีเงา */
-  transform-origin: top left; /* ✅ ชิดซ้าย */
+  box-shadow: none;
+  transform-origin: top left;
   margin: 0;
   padding: 0;
 }
@@ -31,38 +30,35 @@ body {
 header {
   width: 100%;
   display: flex;
-  justify-content: center;
-  padding: 10px 0;
-}
-
-.month-nav {
-  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  padding: 10px 0;
+  box-sizing: border-box;
+  color: #ffffff;
 }
 
-.month-nav span {
-  height: 32px;
-  width: 32px;
+/* ปุ่ม GIF ซ้าย-ขวา */
+header .nav-gif {
+  height: 46px;
+  width: auto;
   cursor: pointer;
-  color: #777;
-  text-align: center;
-  line-height: 32px;
-  font-size: 1.5rem;
-  user-select: none;
-  border-radius: 50%;
-  transition: background 0.2s;
+  transition: transform 0.2s ease;
 }
 
-.month-nav span:hover {
-  background: #f2f2f2;
+header .nav-gif:hover {
+  transform: scale(1.1);
+}
+
+/* เดือนตรงกลาง */
+.month-nav {
+  flex: 1;
+  text-align: center;
 }
 
 .month-nav .current-date {
   font-size: 1.3rem;
   font-weight: 500;
   color: #333;
-  text-align: center;
 }
 
 /* Calendar Section */
@@ -70,7 +66,6 @@ header {
   padding: 5px 0 0 0;
 }
 
-/* Layout ของวัน */
 .calendar ul {
   display: flex;
   flex-wrap: wrap;
@@ -87,9 +82,9 @@ header {
 .calendar .days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 1fr); /* ✅ ความสูงคงที่ 6 แถว */
+  grid-template-rows: repeat(6, 1fr);
   gap: 0;
-  height: 260px; /* ✅ ความสูงคงที่เท่ากับเดือน Feb 2026 */
+  height: 260px;
   align-items: start;
 }
 
