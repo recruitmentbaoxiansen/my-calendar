@@ -12,6 +12,20 @@ document.addEventListener("DOMContentLoaded", () => {
     "January","February","March","April","May","June",
     "July","August","September","October","November","December"
   ];
+  
+  // วันที่สำคัญ + ไอคอน + tooltip
+  const specialEvents = [
+  {
+    date: "2025-12-25",
+    label: "วันคริสมาสต์",
+    icon: "assets/xmas-hat.png"
+  },
+  {
+    date: "2026-01-01",
+    label: "วันขึ้นปีใหม่",
+    icon: "assets/party-hat.png"
+  }
+  ];
 
   const renderCalendar = () => {
     let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(),
@@ -31,7 +45,15 @@ document.addEventListener("DOMContentLoaded", () => {
         i === date.getDate() &&
         currMonth === new Date().getMonth() &&
         currYear === new Date().getFullYear() ? "active" : "";
-      liTag += `<li class="${isToday}">${i}</li>`;
+      
+      // สร้างวันที่ในรูปแบบ YYYY-MM-DD เพื่อใช้เช็ค special event
+      let thisDate = `${currYear}-${String(currMonth + 1).padStart(2,"0")}-${String(i).padStart(2,"0")}`;
+      let event = specialEvents.find(e => e.date === thisDate);
+
+      let iconHTML = event ? `<img src="${event.icon}" class="event-icon" alt="">` : "";
+      let tooltip = event ? `title="${event.label}"` : "";
+
+      liTag += `<li class="${isToday}" ${tooltip}>${i}${iconHTML}</li>`;  
     }
 
     // วันเดือนถัดไป เพื่อครบ 42 ช่อง
