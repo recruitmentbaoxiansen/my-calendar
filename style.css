@@ -21,7 +21,6 @@ body {
   background: transparent;
   border-radius: 0;
   box-shadow: none;
-  transform-origin: top left;
   margin: 0;
   padding: 0;
 }
@@ -33,14 +32,12 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
-  box-sizing: border-box;
   color: #ffffff;
 }
 
 /* ปุ่ม GIF ซ้าย-ขวา */
 header .nav-gif {
   height: 46px;
-  width: auto;
   cursor: pointer;
   transition: transform 0.2s ease;
 }
@@ -84,7 +81,8 @@ header .nav-gif:hover {
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(6, 1fr);
   gap: 0;
-  height: 260px;
+  height: auto;
+  min-height: 260px;
   align-items: start;
 }
 
@@ -125,14 +123,40 @@ header .nav-gif:hover {
   background: #f2f2f2;
 }
 
+/* ไอคอนวันพิเศษ */
+.event-icon {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+/* Tooltip */
+.tooltip {
+  visibility: hidden;
+  background: #333;
+  color: #fff;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  position: absolute;
+  top: -5px;
+  right: 105%;
+  white-space: nowrap;
+  z-index: 20;
+}
+
+.calendar .days li:hover .tooltip {
+  visibility: visible;
+}
+
 @media (max-width: 400px) {
   .wrapper {
     width: 100%;
   }
   .month-nav .current-date {
     font-size: 1.1rem;
-  }
-  .calendar .days {
-    height: 240px;
   }
 }
