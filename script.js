@@ -24,6 +24,36 @@ document.addEventListener("DOMContentLoaded", () => {
     date: "2026-01-01",
     label: "วันขึ้นปีใหม่",
     icon: "assets/party-hat.png"
+  },
+  {
+    date: "2026-03-03",
+    label: "วันมาฆบูชา",
+    icon: "assets/Maghapuja.png"
+  },
+  {
+    date: "2026-04-06",
+    label: "วันจักรี",
+    icon: "assets/Chakri.png"
+  },
+  {
+    date: "2026-04-13",
+    label: "วันสงกรานต์",
+    icon: "assets/Songkran.png"
+  },
+  {
+    date: "2026-04-13",
+    label: "วันสงกรานต์",
+    icon: "assets/Songkran.png"
+  },
+  {
+    date: "2026-04-14",
+    label: "วันสงกรานต์",
+    icon: "assets/Songkran.png"
+  },
+  {
+    date: "2026-04-15",
+    label: "วันสงกรานต์",
+    icon: "assets/Songkran.png"
   }
   ];
 
