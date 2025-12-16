@@ -21,6 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
     icon: "assets/xmas-hat.png"
   },
   {
+    date: "2025-12-31",
+    label: "วันสิ้นปี",
+    icon: "assets/lastyear.png"
+  },   
+  {
     date: "2026-01-01",
     label: "วันขึ้นปีใหม่",
     icon: "assets/party-hat.png"
