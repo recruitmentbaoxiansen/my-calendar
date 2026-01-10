@@ -16,6 +16,56 @@ document.addEventListener("DOMContentLoaded", () => {
   // วันที่สำคัญ + ไอคอน + tooltip
   const specialEvents = [
   {
+    date: "2026-01-07",
+    label: "วันเกิดพี่ฟิล์ม",
+    icon: "assets/BDay.png"
+  },  
+  {
+    date: "2026-01-10",
+    label: "วันเกิดพี่หุ้ย",
+    icon: "assets/BDay.png"
+  },  
+  {
+    date: "2026-07-08",
+    label: "วันเกิดจูจู",
+    icon: "assets/BDay.png"
+  },
+  {
+    date: "2026-07-17",
+    label: "วันเกิดพี่แอร์",
+    icon: "assets/BDay.png"
+  },  
+  {
+    date: "2026-08-20",
+    label: "วันเกิดพี่บิ๋ม",
+    icon: "assets/BDay.png"
+  }, 
+  {
+    date: "2026-08-16",
+    label: "วันเกิดพี่ลิลลี่",
+    icon: "assets/BDay.png"
+  },  
+  {
+    date: "2026-09-26",
+    label: "วันเกิดพี่เหมย",
+    icon: "assets/BDay.png"
+  },  
+  {
+    date: "2026-09-27",
+    label: "วันเกิดพี่เหว่ย",
+    icon: "assets/BDay.png"
+  },   
+  {
+    date: "2026-10-20",
+    label: "วันเกิดฟ้า",
+    icon: "assets/BDay.png"
+  },  
+  {
+    date: "2026-11-28",
+    label: "วันเกิดพี่เปิ้ล",
+    icon: "assets/BDay.png"
+  },  
+  {
     date: "2025-12-25",
     label: "วันคริสมาสต์",
     icon: "assets/xmas-hat.png"
