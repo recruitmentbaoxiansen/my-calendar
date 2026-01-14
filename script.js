@@ -109,7 +109,52 @@ document.addEventListener("DOMContentLoaded", () => {
     date: "2026-04-15",
     label: "วันสงกรานต์",
     icon: "assets/Songkran.png"
-  }
+  },
+  {
+    date: "2026-05-01",
+    label: "วันแรงงาน",
+    icon: "assets/แรงงาน.png"
+  },
+  {
+    date: "2026-06-03",
+    label: "วันเกิดราชินี",
+    icon: "assets/วันเกิดราชินี.png"
+  },
+  {
+    date: "2026-07-28",
+    label: "วันเกิดเสี่ยโอ",
+    icon: "assets/วันเกิดเสี่ยโอ.png"
+  },
+  {
+    date: "2026-07-29",
+    label: "วันอาสาฬหบูชา",
+    icon: "assets/อาสาฬหบูชา.png"
+  },
+  {
+    date: "2026-04-15",
+    label: "วันแม่แห่งชาติ",
+    icon: "assets/วันแม่.png"
+  },
+  {
+    date: "2026-10-13",
+    label: "วันสวรรคตร.9",
+    icon: "assets/วันเสียร.9.png"
+  },
+  {
+    date: "2026-10-23",
+    label: "วันปิยมหาราช",
+    icon: "assets/ปิยมหาราช.png"
+  },
+  {
+    date: "2026-12-05",
+    label: "ชดเชยวันพ่อ",
+    icon: "assets/ชดเชยวันพ่อ.png"
+  },
+  {
+    date: "2026-12-31",
+    label: "วันสิ้นปี",
+    icon: "assets/lastyear2.png"
+  }  
   ];
 
   const renderCalendar = () => {
