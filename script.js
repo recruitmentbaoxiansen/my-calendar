@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
     icon: "assets/ปิยมหาราช.png"
   },
   {
-    date: "2026-12-05",
+    date: "2026-12-07",
     label: "ชดเชยวันพ่อ",
     icon: "assets/ชดเชยวันพ่อ.png"
   },
