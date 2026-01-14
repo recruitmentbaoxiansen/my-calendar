@@ -146,11 +146,6 @@ document.addEventListener("DOMContentLoaded", () => {
     icon: "assets/ปิยมหาราช.png"
   },
   {
-    date: "2026-12-07",
-    label: "ชดเชยวันพ่อ",
-    icon: "assets/ชดเชยวันพ่อ.png"
-  },
-  {
     date: "2026-12-31",
     label: "วันสิ้นปี",
     icon: "assets/lastyear2.png"
@@ -169,6 +164,11 @@ document.addEventListener("DOMContentLoaded", () => {
     date: "2026-12-06",
     label: "BTS's Concert",
     icon: "assets/BTS.png"
+  },
+  {
+    date: "2026-12-07",
+    label: "ชดเชยวันพ่อ",
+    icon: "assets/ชดเชยวันพ่อ.png"
   }
   ];
 
