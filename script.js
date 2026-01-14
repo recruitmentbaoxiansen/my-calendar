@@ -154,7 +154,22 @@ document.addEventListener("DOMContentLoaded", () => {
     date: "2026-12-31",
     label: "วันสิ้นปี",
     icon: "assets/lastyear2.png"
-  }  
+  },
+  {
+    date: "2026-12-03",
+    label: "BTS's Concert",
+    icon: "assets/BTS.png"
+  },
+  {
+    date: "2026-12-05",
+    label: "BTS's Concert",
+    icon: "assets/BTS.png"
+  },
+  {
+    date: "2026-12-06",
+    label: "BTS's Concert",
+    icon: "assets/BTS.png"
+  }
   ];
 
   const renderCalendar = () => {
